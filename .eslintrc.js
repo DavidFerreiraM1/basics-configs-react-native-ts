@@ -77,7 +77,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [
-      2,
+      0,
       {
         extensions: ['.jsx', '.tsx'],
       },
@@ -103,13 +103,13 @@ module.exports = {
       {accessibility: 'no-public'},
     ],
     '@typescript-eslint/no-empty-interface': 1,
-    '@typescript-eslint/explicit-function-return-type': [
-      0,
-      {
-        allowExpressions: true,
-        allowTypedFunctionExpressions: true,
-      },
-    ],
+    // '@typescript-eslint/explicit-function-return-type': [
+    //   0,
+    //   {
+    //     allowExpressions: true,
+    //     allowTypedFunctionExpressions: true,
+    //   },
+    // ],
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-use-before-define': [
       2,
@@ -128,6 +128,22 @@ module.exports = {
       'asc',
       {ignoreClassNames: true, ignoreStyleProperties: true},
     ],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      files: ['*.ts'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': ['error'],
+      },
+    },
+    {
+      // enable the rule specifically for TypeScript files
+      files: ['*.ts'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': ['error'],
+      },
+    },
+  ],
 };
-
